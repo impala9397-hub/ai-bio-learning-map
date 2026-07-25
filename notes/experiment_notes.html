@@ -1,0 +1,56 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>코드 만져보기 실험 노트</title>
+<style>
+  body{font-family:'Apple SD Gothic Neo','Malgun Gothic',sans-serif;margin:0;background:#f7f8fa;color:#202124;line-height:1.65;font-size:15px;}
+  .wrap{max-width:860px;margin:0 auto;padding:26px 22px 60px;}
+  h1{font-size:23px;margin:0 0 6px;} h2{font-size:18px;margin:26px 0 8px;color:#1565c0;}
+  .sub{color:#5f6368;font-size:14px;margin:0 0 18px;}
+  .card{background:#fff;border-radius:12px;padding:16px 20px;margin:0 0 16px;box-shadow:0 1px 3px rgba(0,0,0,.06);}
+  .q{font-weight:700;color:#8a6d00;background:#fff8e1;border-radius:8px;padding:8px 12px;margin:8px 0;font-size:14px;}
+  .a{font-weight:700;color:#188038;margin:8px 0;}
+  table{width:100%;border-collapse:collapse;font-size:13.5px;margin:10px 0;}
+  th,td{padding:6px 10px;border-bottom:1px solid #eef0f2;text-align:center;}
+  th{color:#5f6368;font-size:12.5px;} td:first-child{text-align:left;font-weight:600;}
+  .take{font-size:14px;background:#e8f0fe;border-left:4px solid #1565c0;border-radius:6px;padding:10px 14px;margin:10px 0;}
+  code{font-family:ui-monospace,monospace;background:#f1f3f4;border-radius:4px;padding:0 4px;font-size:13px;}
+  img{width:100%;border-radius:8px;border:1px solid #e3e6ea;margin:8px 0;}
+</style></head><body><div class="wrap">
+<h1>코드 만져보기 — 실험 노트</h1>
+<p class="sub">완성된 코드를 읽기만 하지 않고, 한 줄씩 바꿔서 결과가 어떻게 변하는지 확인한 기록. 개념을 '몸으로' 이해하는 방식.</p>
+
+<h2>왜 이렇게 배우나 — 3개 층위</h2>
+<div class="card">
+<p>코드 배움엔 ①개념(왜 이렇게 푸나) ②흐름(데이터가 어떤 모양으로 흐르나) ③문법(도구 사용법) 3층이 있다.
+문법을 한 줄씩 완벽히 외우는 건 지금 단계엔 비효율 — 개념은 이미 잡았고, 문법은 <b>만져보면서</b> 자연히 익는다.</p>
+<img src="images/650d085e-1b40-4fbd-9fa3-beffb36e4e2c.png">
+</div>
+
+<h2>실험 1 — descriptor를 망가뜨리면 B가 무너질까?</h2>
+<div class="card">
+<p>바꾼 코드 한 줄: <code>X = data['descriptor'][tr]</code> → <code>X = np.random.permutation(data['descriptor'])[tr]</code>
+(각 perturbation에 엉뚱한 특징을 붙여 짝을 파괴)</p>
+<div class="q">예측: B가 무너져 A 기준선 수준으로 추락할 것</div>
+<table><tr><th>모델</th><th>MAE↓</th><th>PDS↑</th><th>DES↑</th></tr><tr><td>A (기준선)</td><td>0.594</td><td>0.0</td><td>0.792</td></tr><tr><td>B (정상 descriptor)</td><td>0.186</td><td>1.0</td><td>0.923</td></tr><tr><td>B (뒤섞은 descriptor)</td><td>0.559</td><td>0.429</td><td>0.784</td></tr></table>
+<p class="a">→ 예측 적중. 정상 B(MAE 0.186)가 descriptor를 뒤섞자 0.559로 3배 악화 — 거의 A(0.594) 수준.</p>
+<div class="take"><b>교훈:</b> 데이터에 구조가 있어도, 모델이 <b>올바른 입력(descriptor)</b>을 받아야 이긴다.
+대회에서 descriptor = "어떤 유전자를 껐나 + 그 유전자 특성" → <b>어떤 특징을 입력으로 쓸까가 승부의 큰 부분.</b></div>
+</div>
+
+<h2>실험 2 — 훈련 데이터를 줄이면 B가 얼마나 나빠지나?</h2>
+<div class="card">
+<p>바꾼 것: 훈련 perturbation 수를 16 → 8 → 6 → 4 → 3 → 2로 축소.</p>
+<div class="q">예측: 점점 나빠질 것</div>
+<table><tr><th>훈련 수</th><th>MAE↓</th><th>PDS↑</th></tr><tr><td>2</td><td>0.463</td><td>0.786</td></tr><tr><td>3</td><td>0.398</td><td>0.75</td></tr><tr><td>4</td><td>0.439</td><td>0.929</td></tr><tr><td>6</td><td>0.479</td><td>0.964</td></tr><tr><td>8</td><td>0.341</td><td>1.0</td></tr><tr><td>16</td><td>0.186</td><td>1.0</td></tr></table>
+<img src="images/ff7a45c8-ff98-40eb-af49-1deb4bd772f4.png">
+<p class="a">→ 큰 방향 적중(16개=0.186 최고, 줄일수록 악화). 반전 두 가지:</p>
+<div class="take"><b>반전 1:</b> descriptor가 4차원 → 절편 포함 미지수 5개. 훈련이 5개보다 적으면(2~4개) 정보 부족으로 규칙을 온전히 못 정해 성적이 들쭉날쭉·운에 좌우.
+<b>미지수보다 데이터(방정식)가 많아야 안정적으로 풀린다</b> — 데이터가 왜 필요한지의 수학적 이유.<br><br>
+<b>반전 2:</b> 그래도 2개만 있어도 A(0.594)보다는 나음(0.463). 학습형은 데이터가 적어도 완전 무용은 아니나, 진짜 힘은 충분한 데이터에서.</div>
+</div>
+
+<h2>실제 대회로 연결</h2>
+<div class="card">
+<p>두 실험이 같은 곳을 가리킨다 — <b>학습형 모델의 성능 = 좋은 입력 특징(descriptor) × 충분한 데이터.</b>
+STATE가 수억 세포로 학습해 강한 것도 실험 2의 원리다. 모델을 키우면(파라미터↑) 데이터도 그만큼 더 필요하다(미지수↑ → 방정식↑).</p>
+</div>
+</div></body></html>
