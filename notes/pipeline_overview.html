@@ -1,0 +1,223 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>전체 코드 개요</title>
+<style>
+  body{font-family:'Apple SD Gothic Neo','Malgun Gothic',sans-serif;margin:0;background:#f7f8fa;color:#202124;line-height:1.65;font-size:15px;}
+  .wrap{max-width:860px;margin:0 auto;padding:28px 22px 60px;}
+  h1{font-size:24px;margin:0 0 4px;} .sub{color:#5f6368;font-size:14px;margin:0 0 20px;}
+  .back{display:inline-block;margin-bottom:16px;color:#1565c0;text-decoration:none;font-size:13.5px;}
+  h2{font-size:18px;margin:26px 0 12px;padding-bottom:5px;border-bottom:2px solid #eef0f2;}
+  .figwrap{text-align:center;margin:14px 0;} .figwrap img{max-width:100%;border-radius:10px;border:1px solid #e3e6ea;}
+  .fn{background:#fff;border-radius:11px;border-left:5px solid #ccc;padding:14px 17px;margin:0 0 12px;box-shadow:0 1px 3px rgba(0,0,0,.06);}
+  .fnhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;flex-wrap:wrap;gap:8px;}
+  .fnname{font-family:ui-monospace,monospace;font-size:16px;font-weight:700;}
+  .detail{color:#fff;text-decoration:none;font-size:12.5px;font-weight:700;padding:4px 12px;border-radius:20px;white-space:nowrap;}
+  .fnwhat{font-size:14px;color:#202124;margin-bottom:5px;}
+  .fnio{font-family:ui-monospace,monospace;font-size:12px;color:#5f6368;background:#f6f8fa;border-radius:6px;padding:5px 9px;}
+  details.code{background:#fff;border-radius:11px;margin:14px 0;box-shadow:0 1px 3px rgba(0,0,0,.06);overflow:hidden;}
+  details.code summary{cursor:pointer;list-style:none;font-size:15px;font-weight:700;color:#1565c0;padding:13px 17px;background:#f4f8ff;}
+  details.code summary::-webkit-details-marker{display:none;}
+  details.code summary::before{content:"\25B6";font-size:11px;margin-right:9px;color:#1565c0;}
+  details.code[open] summary::before{content:"\25BC";}
+  pre{margin:0;padding:15px 17px;overflow-x:auto;background:#fbfcfd;font-family:ui-monospace,monospace;font-size:12px;line-height:1.5;color:#24292f;}
+  .note{background:#fff8e1;border-radius:10px;padding:12px 16px;font-size:13.5px;color:#8a6d00;margin:16px 0;}
+</style></head><body><div class="wrap">
+<a class="back" href="index.html">← VCC 학습 노트</a>
+<h1>전체 코드 개요</h1>
+<p class="sub">먼저 전체 흐름을 파악하고, 궁금한 함수의 "자세히 보기"를 눌러 한 줄씩 뜯어보세요.</p>
+
+<h2>1. 전체 흐름</h2>
+<div class="figwrap"><img src="images/pipeline_overview_fig.png" alt="파이프라인 전체 흐름"></div>
+<div class="note">📌 읽는 순서: <b>이 개요에서 큰 그림 파악 → 각 함수 "자세히 보기" 클릭 → 워크스루에서 한 줄씩</b></div>
+
+<h2>2. 함수별 요약 + 자세히 보기</h2>
+<div class="fn" style="border-left-color:#1565c0">
+  <div class="fnhead"><span class="fnname" style="color:#1565c0">make_dataset</span>
+    <a class="detail" href="make_dataset_walkthrough.html" style="background:#1565c0">자세히 보기 →</a></div>
+  <div class="fnwhat">합성 데이터를 만든다. control 세포 + perturbation별 세포 + 각 perturbation의 설명자(descriptor)를 생성.</div>
+  <div class="fnio">입력: seed, structured(구조 유무) · 출력: dict(ctrl, pert_cells, descriptor, train_ids, test_ids)</div>
+</div><div class="fn" style="border-left-color:#188038">
+  <div class="fnhead"><span class="fnname" style="color:#188038">fit_predict_A</span>
+    <a class="detail" href="fit_predict_A_walkthrough.html" style="background:#188038">자세히 보기 →</a></div>
+  <div class="fnwhat">평균 baseline 예측기. 훈련 perturbation들의 평균 효과를 구해 모든 test에 똑같이 예측. 설명자를 안 씀.</div>
+  <div class="fnio">입력: data · 출력: pred dict{test_id: (60,) 벡터}</div>
+</div><div class="fn" style="border-left-color:#188038">
+  <div class="fnhead"><span class="fnname" style="color:#188038">fit_predict_B</span>
+    <a class="detail" href="fit_predict_B_walkthrough.html" style="background:#188038">자세히 보기 →</a></div>
+  <div class="fnwhat">학습형 회귀 예측기. '설명자 → 효과' 규칙 W를 최소제곱으로 학습해, 처음 보는 perturbation도 그 설명자로 예측.</div>
+  <div class="fnio">입력: data · 출력: pred dict{test_id: (60,) 벡터}</div>
+</div><div class="fn" style="border-left-color:#c62828">
+  <div class="fnhead"><span class="fnname" style="color:#c62828">score_all</span>
+    <a class="detail" href="score_all_walkthrough.html" style="background:#c62828">자세히 보기 →</a></div>
+  <div class="fnwhat">채점. 예측 P와 실제 T를 비교해 MAE·PDS·DES 세 지표를 계산.</div>
+  <div class="fnio">입력: data, pred · 출력: dict(MAE, PDS, DES)</div>
+</div>
+
+<h2>3. 전체 코드 (한눈에)</h2>
+<details class="code"><summary>vcc_pipeline.py 전체 펼치기 (165줄)</summary>
+<pre>"""
+================================================================================
+ Virtual Cell Challenge — 표현→예측→채점 파이프라인 (합성 데이터 실험)
+================================================================================
+목적:
+  "학습 가능한 구조가 있어야 학습형 모델(B)이 평균 베이스라인(A)을 이긴다"를
+  두 개의 합성 데이터셋(구조 없음 / 구조 있음)으로 직접 확인한다.
+
+구성:
+  PART 1. 데이터 생성       — 세포×유전자 행렬, control + 섭동
+  PART 2. 예측기 A (평균)    — 훈련 섭동 평균효과를 모든 테스트에 복사
+  PART 3. 예측기 B (학습형)  — 섭동 설명자 → 효과를 회귀로 학습
+  PART 4. 채점 (DES/PDS/MAE) — 예측 vs 실제 비교
+  PART 5. 실험 실행          — 두 데이터셋에서 A/B 비교
+================================================================================
+"""
+import numpy as np
+from numpy.linalg import lstsq
+
+
+# ══════════════════════════════════════════════════════════════════════════
+# PART 1.  데이터 생성
+# ══════════════════════════════════════════════════════════════════════════
+
+def make_dataset(seed, structured, G=60, N_PERT=24, n_ctrl=400, n_per_pert=100,
+                 K_PROG=4):
+    """합성 단일세포 섭동 데이터를 하나 생성한다.
+
+    Parameters
+    ----------
+    seed : int         난수 시드 (재현성)
+    structured : bool  True면 '학습 가능한 구조'를 심는다 (섭동 설명자→프로그램→유전자)
+                       False면 각 섭동 효과가 독립적 랜덤 (학습할 공통 규칙 없음)
+
+    Returns (dict)
+    -------
+    ctrl        : (n_ctrl, G)          control(기저) 세포들
+    pert_cells  : {p: (n_per_pert, G)} 섭동 p의 세포들
+    descriptor  : (N_PERT, K_PROG)     각 섭동의 '설명자' (B가 입력으로 씀)
+    train_ids / test_ids               훈련/테스트로 나뉜 섭동 번호
+    """
+    rng = np.random.default_rng(seed)
+
+    # (1) 유전자별 기본 발현량 + 세포 상태가 발현에 주는 영향(이질성의 원천)
+    mu0 = rng.uniform(0.5, 4.0, size=G)
+    state_loadings = rng.normal(0, 0.6, size=(2, G))
+
+    def sample_cells(extra_shift, n):
+        """세포 n개를 생성. 각 세포는 상태(z)가 달라서 발현이 조금씩 다르다."""
+        z = rng.normal(0, 1, size=(n, 2))          # 세포별 숨은 상태 2개
+        base = mu0[None, :] + z @ state_loadings    # 상태가 발현에 반영 → 세포마다 다름
+        noise = rng.normal(0, 0.4, size=(n, G))     # 측정 잡음
+        return np.clip(base + extra_shift[None, :] + noise, 0, None)  # 음수 발현 방지
+
+    # (2) 섭동 효과(shift) 만들기 — 여기가 '구조 없음 vs 있음'의 갈림길
+    if structured:
+        # 숨은 프로그램 K개: 각 프로그램은 특정 유전자 세트를 움직인다
+        prog_gene = np.zeros((K_PROG, G))
+        for k in range(K_PROG):
+            genes = rng.choice(G, size=rng.integers(6, 11), replace=False)
+            prog_gene[k, genes] = rng.normal(0, 1.5, size=len(genes))
+        # 각 섭동은 '설명자'(프로그램 활성도)를 가짐 → 효과 = 설명자 × 프로그램
+        descriptor = rng.normal(0, 1, size=(N_PERT, K_PROG))
+        true_shift = descriptor @ prog_gene          # 공통 규칙을 따름 → 학습 가능
+    else:
+        # 각 섭동이 독립적으로 소수 유전자를 랜덤하게 움직임 → 공통 규칙 없음
+        true_shift = np.zeros((N_PERT, G))
+        for p in range(N_PERT):
+            genes = rng.choice(G, size=rng.integers(3, 9), replace=False)
+            true_shift[p, genes] = rng.normal(0, 1.8, size=len(genes))
+        descriptor = rng.normal(0, 1, size=(N_PERT, K_PROG))  # 의미 없는 설명자
+
+    # (3) 실제 세포 생성
+    ctrl = sample_cells(np.zeros(G), n_ctrl)
+    pert_cells = {p: sample_cells(true_shift[p], n_per_pert) for p in range(N_PERT)}
+
+    # (4) 훈련/테스트 섭동 분리 (처음 보는 섭동에 대한 일반화 측정)
+    perm = rng.permutation(N_PERT)
+    train_ids = sorted(perm[:16].tolist())
+    test_ids  = sorted(perm[16:].tolist())
+
+    return dict(ctrl=ctrl, pert_cells=pert_cells, descriptor=descriptor,
+                true_shift=true_shift, train_ids=train_ids, test_ids=test_ids)
+
+
+# ══════════════════════════════════════════════════════════════════════════
+# PART 2.  예측기 A — 평균 베이스라인 (설명자 무시)
+# ══════════════════════════════════════════════════════════════════════════
+
+def fit_predict_A(data):
+    """훈련 섭동들의 '평균 효과'를 구해, 모든 테스트 섭동에 똑같이 적용한다.
+    → 섭동을 구별하지 않음. 가장 단순하지만 강력한 기준선."""
+    ctrl_mean = data['ctrl'].mean(0)
+    train_shifts = np.array([data['pert_cells'][p].mean(0) - ctrl_mean
+                             for p in data['train_ids']])
+    avg_shift = train_shifts.mean(0)                       # 평균 효과 하나
+    return {p: ctrl_mean + avg_shift for p in data['test_ids']}
+
+
+# ══════════════════════════════════════════════════════════════════════════
+# PART 3.  예측기 B — 학습형 회귀 (설명자 사용)
+# ══════════════════════════════════════════════════════════════════════════
+
+def fit_predict_B(data):
+    """'섭동 설명자 → 효과'의 관계를 선형회귀로 학습한다.
+    테스트 섭동은 그 설명자를 넣어 효과를 예측 → 처음 보는 섭동도 예측 가능."""
+    ctrl_mean = data['ctrl'].mean(0)
+    tr = data['train_ids']
+    X = data['descriptor'][tr]                             # (훈련수, 설명자차원)
+    Y = np.array([data['pert_cells'][p].mean(0) - ctrl_mean for p in tr])  # (훈련수, G)
+    X_ = np.hstack([X, np.ones((len(tr), 1))])             # 절편 항 추가
+    W, *_ = lstsq(X_, Y, rcond=None)                       # 최소제곱으로 W 학습
+    pred = {}
+    for p in data['test_ids']:
+        x = np.hstack([data['descriptor'][p], [1.0]])
+        pred[p] = ctrl_mean + x @ W                        # 학습한 규칙으로 예측
+    return pred
+
+
+# ══════════════════════════════════════════════════════════════════════════
+# PART 4.  채점 — DES / PDS / MAE
+# ══════════════════════════════════════════════════════════════════════════
+
+def score_all(data, pred):
+    """예측 평균 vs 실제 평균을 세 지표로 채점한다."""
+    ctrl_mean = data['ctrl'].mean(0)
+    ids = list(data['test_ids'])
+    P = np.array([pred[p] for p in ids])                        # 예측 (T x G)
+    T = np.array([data['pert_cells'][p].mean(0) for p in ids])  # 실제 (T x G)
+
+    # MAE: 전체 유전자 발현 오차 (낮을수록 좋음)
+    mae = np.abs(P - T).mean()
+
+    # PDS: 각 예측이 자기 짝(실제)에 L1거리로 가장 가까운가 (1=완벽, 0=랜덤)
+    ranks = []
+    for i in range(len(ids)):
+        d = np.abs(P[i][None, :] - T).sum(1)
+        ranks.append(int(np.where(np.argsort(d) == i)[0][0]) / (len(ids) - 1))
+    pds = 1 - 2 * np.mean(ranks)
+
+    # DES: 실제로 움직인 유전자 집합을 예측이 맞추는가 (recall, 높을수록 좋음)
+    des = []
+    for i in range(len(ids)):
+        true_fc = np.abs(T[i] - ctrl_mean)
+        n_deg = max(3, int((true_fc &gt; 0.5).sum()))
+        true_top = set(np.argsort(-true_fc)[:n_deg].tolist())
+        pred_top = set(np.argsort(-np.abs(P[i] - ctrl_mean))[:n_deg].tolist())
+        des.append(len(true_top &amp; pred_top) / len(true_top))
+    des = np.mean(des)
+
+    return dict(MAE=mae, PDS=pds, DES=des)
+
+
+# ══════════════════════════════════════════════════════════════════════════
+# PART 5.  실험 실행 — 두 데이터셋에서 A vs B 비교
+# ══════════════════════════════════════════════════════════════════════════
+
+if __name__ == "__main__":
+    for label, structured in [("구조 없음", False), ("구조 있음", True)]:
+        data = make_dataset(seed=0 if not structured else 42, structured=structured)
+        sA = score_all(data, fit_predict_A(data))
+        sB = score_all(data, fit_predict_B(data))
+        print(f"\n[{label}]")
+        print(f"  A(평균)  MAE={sA['MAE']:.3f}  PDS={sA['PDS']:.3f}  DES={sA['DES']:.3f}")
+        print(f"  B(학습형) MAE={sB['MAE']:.3f}  PDS={sB['PDS']:.3f}  DES={sB['DES']:.3f}")
+</pre></details>
+</div></body></html>
