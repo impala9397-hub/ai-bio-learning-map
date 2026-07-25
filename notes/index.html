@@ -7,24 +7,23 @@
   .card{display:block;background:#fff;border-radius:12px;border-left:5px solid #ccc;padding:16px 18px;margin:0 0 12px;
          text-decoration:none;box-shadow:0 1px 3px rgba(0,0,0,.06);transition:box-shadow .12s;}
   .card:hover{box-shadow:0 2px 10px rgba(0,0,0,.12);}
-  .ct{font-size:16px;font-weight:700;margin-bottom:3px;}
-  .cd{font-size:13.5px;color:#3c4043;}
+  .card.start{background:#faf5ff;border-left-width:6px;}
+  .ct{font-size:16px;font-weight:700;margin-bottom:3px;} .cd{font-size:13.5px;color:#3c4043;}
   .back{display:inline-block;margin-bottom:16px;color:#1565c0;text-decoration:none;font-size:13.5px;}
+  .seclabel{font-size:13px;font-weight:700;color:#9aa0a6;margin:20px 0 8px;text-transform:uppercase;letter-spacing:.5px;}
 </style></head><body><div class="wrap">
 <a class="back" href="../">← AI × Bio 학습 지도</a>
 <h1>VCC 학습 노트</h1>
 <p class="sub">Virtual Cell Challenge 2026 — 코드 워크스루 · 개념 노트 · 실험. 브라우저에서 그대로 렌더됩니다.</p>
+<a class="card start" href="pipeline_overview.html" style="border-left-color:#7b1fa2">
+  <div class="ct" style="color:#7b1fa2">▶ 전체 코드 개요 — 여기서 시작</div>
+  <div class="cd">전체 흐름 도식 + 함수별 요약 + 각 함수 '자세히 보기' 링크. 큰 그림부터 잡고 워크스루로.</div></a>
+<div class="seclabel">함수별 워크스루</div>
 <a class="card" href="make_dataset_walkthrough.html" style="border-left-color:#1565c0">
-  <div class="ct" style="color:#1565c0">make_dataset — 워크스루</div>
-  <div class="cd">합성 데이터 생성 함수 한 줄씩 (이름 사전)</div></a><a class="card" href="fit_predict_A_walkthrough.html" style="border-left-color:#1565c0">
-  <div class="ct" style="color:#1565c0">fit_predict_A — 워크스루</div>
-  <div class="cd">평균 baseline 예측기</div></a><a class="card" href="fit_predict_B_walkthrough.html" style="border-left-color:#1565c0">
-  <div class="ct" style="color:#1565c0">fit_predict_B — 워크스루</div>
-  <div class="cd">학습형 회귀 예측기</div></a><a class="card" href="score_all_walkthrough.html" style="border-left-color:#1565c0">
-  <div class="ct" style="color:#1565c0">score_all — 워크스루</div>
-  <div class="cd">MAE/PDS/DES 채점</div></a><a class="card" href="math_glossary.html" style="border-left-color:#188038">
-  <div class="ct" style="color:#188038">수학·통계 용어 노트</div>
-  <div class="cd">uniform/normal/mean/std/행렬곱/lstsq/차원 (그림 8개)</div></a><a class="card" href="experiment_notes.html" style="border-left-color:#b26a00">
-  <div class="ct" style="color:#b26a00">코드 만져보기 실험</div>
-  <div class="cd">descriptor 셔플·훈련 크기 실험</div></a>
+  <div class="ct" style="color:#1565c0">make_dataset — 워크스루</div><div class="cd">합성 데이터 생성 함수 한 줄씩 (이름 사전)</div></a><a class="card" href="fit_predict_A_walkthrough.html" style="border-left-color:#1565c0">
+  <div class="ct" style="color:#1565c0">fit_predict_A — 워크스루</div><div class="cd">평균 baseline 예측기</div></a><a class="card" href="fit_predict_B_walkthrough.html" style="border-left-color:#1565c0">
+  <div class="ct" style="color:#1565c0">fit_predict_B — 워크스루</div><div class="cd">학습형 회귀 예측기</div></a><a class="card" href="score_all_walkthrough.html" style="border-left-color:#1565c0">
+  <div class="ct" style="color:#1565c0">score_all — 워크스루</div><div class="cd">MAE/PDS/DES 채점</div></a><a class="card" href="math_glossary.html" style="border-left-color:#188038">
+  <div class="ct" style="color:#188038">수학·통계 용어 노트</div><div class="cd">uniform/normal/mean/std/행렬곱/lstsq/차원 (그림 8개)</div></a><a class="card" href="experiment_notes.html" style="border-left-color:#b26a00">
+  <div class="ct" style="color:#b26a00">코드 만져보기 실험</div><div class="cd">descriptor 셔플·훈련 크기 실험</div></a>
 </div></body></html>
