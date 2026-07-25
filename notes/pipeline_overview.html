@@ -28,6 +28,92 @@
   .flowdata{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12.5px;color:#1565c0;background:#f4f8ff;border:1px solid #cfe0fb;border-radius:8px;padding:10px 14px;margin:6px 0 2px;text-align:center;overflow-x:auto;white-space:nowrap;}
   .flowcap{text-align:center;font-size:13px;color:#5f6368;font-weight:700;margin:14px 0 4px;}
   @media(max-width:640px){.farrow{transform:rotate(90deg);padding:4px 0;} .flow{flex-direction:column;}}
+.codehl { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.codehl .hll { background-color: #ffffcc }
+.codehl { background: #f8f8f8; }
+.codehl .c { color: #3D7B7B; font-style: italic } /* Comment */
+.codehl .err { border: 1px solid #F00 } /* Error */
+.codehl .k { color: #008000; font-weight: bold } /* Keyword */
+.codehl .o { color: #666 } /* Operator */
+.codehl .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.codehl .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.codehl .cp { color: #9C6500 } /* Comment.Preproc */
+.codehl .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.codehl .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.codehl .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.codehl .gd { color: #A00000 } /* Generic.Deleted */
+.codehl .ge { font-style: italic } /* Generic.Emph */
+.codehl .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.codehl .gr { color: #E40000 } /* Generic.Error */
+.codehl .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.codehl .gi { color: #008400 } /* Generic.Inserted */
+.codehl .go { color: #717171 } /* Generic.Output */
+.codehl .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.codehl .gs { font-weight: bold } /* Generic.Strong */
+.codehl .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.codehl .gt { color: #04D } /* Generic.Traceback */
+.codehl .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.codehl .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.codehl .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.codehl .kp { color: #008000 } /* Keyword.Pseudo */
+.codehl .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.codehl .kt { color: #B00040 } /* Keyword.Type */
+.codehl .m { color: #666 } /* Literal.Number */
+.codehl .s { color: #BA2121 } /* Literal.String */
+.codehl .na { color: #687822 } /* Name.Attribute */
+.codehl .nb { color: #008000 } /* Name.Builtin */
+.codehl .nc { color: #00F; font-weight: bold } /* Name.Class */
+.codehl .no { color: #800 } /* Name.Constant */
+.codehl .nd { color: #A2F } /* Name.Decorator */
+.codehl .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.codehl .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.codehl .nf { color: #00F } /* Name.Function */
+.codehl .nl { color: #767600 } /* Name.Label */
+.codehl .nn { color: #00F; font-weight: bold } /* Name.Namespace */
+.codehl .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.codehl .nv { color: #19177C } /* Name.Variable */
+.codehl .ow { color: #A2F; font-weight: bold } /* Operator.Word */
+.codehl .w { color: #BBB } /* Text.Whitespace */
+.codehl .mb { color: #666 } /* Literal.Number.Bin */
+.codehl .mf { color: #666 } /* Literal.Number.Float */
+.codehl .mh { color: #666 } /* Literal.Number.Hex */
+.codehl .mi { color: #666 } /* Literal.Number.Integer */
+.codehl .mo { color: #666 } /* Literal.Number.Oct */
+.codehl .sa { color: #BA2121 } /* Literal.String.Affix */
+.codehl .sb { color: #BA2121 } /* Literal.String.Backtick */
+.codehl .sc { color: #BA2121 } /* Literal.String.Char */
+.codehl .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.codehl .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.codehl .s2 { color: #BA2121 } /* Literal.String.Double */
+.codehl .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.codehl .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.codehl .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.codehl .sx { color: #008000 } /* Literal.String.Other */
+.codehl .sr { color: #A45A77 } /* Literal.String.Regex */
+.codehl .s1 { color: #BA2121 } /* Literal.String.Single */
+.codehl .ss { color: #19177C } /* Literal.String.Symbol */
+.codehl .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.codehl .fm { color: #00F } /* Name.Function.Magic */
+.codehl .vc { color: #19177C } /* Name.Variable.Class */
+.codehl .vg { color: #19177C } /* Name.Variable.Global */
+.codehl .vi { color: #19177C } /* Name.Variable.Instance */
+.codehl .vm { color: #19177C } /* Name.Variable.Magic */
+.codehl .il { color: #666 } /* Literal.Number.Integer.Long */
+
+/* VS Code 라이트 팔레트 오버라이드 */
+.codehl{background:#fbfcfd;border:1px solid #e3e6ea;border-radius:8px;}
+.codehl .c,.codehl .c1,.codehl .cm{color:#6a737d;font-style:italic;}   /* 주석 회색 */
+.codehl .k,.codehl .kn,.codehl .kc{color:#a626a4;}                       /* 키워드 보라 */
+.codehl .s,.codehl .s1,.codehl .s2,.codehl .sd{color:#50a14f;}           /* 문자열 초록 */
+.codehl .nf{color:#4078f2;}                                              /* 함수명 파랑 */
+.codehl .nb{color:#c18401;}                                              /* 내장 노랑갈색 */
+.codehl .mi,.codehl .mf{color:#986801;}                                  /* 숫자 갈색 */
+.codehl .o,.codehl .ow{color:#383a42;}                                   /* 연산자 진회색 */
+.codehl .bp{color:#c18401;}
 </style></head><body><div class="wrap">
 <a class="back" href="index.html">← VCC 학습 노트</a>
 <h1>전체 코드 개요</h1>
@@ -72,170 +158,170 @@
 
 <h2>3. 전체 코드 (한눈에)</h2>
 <details class="code"><summary>vcc_pipeline.py 전체 펼치기 (165줄)</summary>
-<pre>"""
-================================================================================
- Virtual Cell Challenge — 표현→예측→채점 파이프라인 (합성 데이터 실험)
-================================================================================
-목적:
-  "학습 가능한 구조가 있어야 학습형 모델(B)이 평균 베이스라인(A)을 이긴다"를
-  두 개의 합성 데이터셋(구조 없음 / 구조 있음)으로 직접 확인한다.
+<pre class="codehl"><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">================================================================================</span>
+<span class="sd"> Virtual Cell Challenge — 표현→예측→채점 파이프라인 (합성 데이터 실험)</span>
+<span class="sd">================================================================================</span>
+<span class="sd">목적:</span>
+<span class="sd">  &quot;학습 가능한 구조가 있어야 학습형 모델(B)이 평균 베이스라인(A)을 이긴다&quot;를</span>
+<span class="sd">  두 개의 합성 데이터셋(구조 없음 / 구조 있음)으로 직접 확인한다.</span>
 
-구성:
-  PART 1. 데이터 생성       — 세포×유전자 행렬, control + 섭동
-  PART 2. 예측기 A (평균)    — 훈련 섭동 평균효과를 모든 테스트에 복사
-  PART 3. 예측기 B (학습형)  — 섭동 설명자 → 효과를 회귀로 학습
-  PART 4. 채점 (DES/PDS/MAE) — 예측 vs 실제 비교
-  PART 5. 실험 실행          — 두 데이터셋에서 A/B 비교
-================================================================================
-"""
-import numpy as np
-from numpy.linalg import lstsq
-
-
-# ══════════════════════════════════════════════════════════════════════════
-# PART 1.  데이터 생성
-# ══════════════════════════════════════════════════════════════════════════
-
-def make_dataset(seed, structured, G=60, N_PERT=24, n_ctrl=400, n_per_pert=100,
-                 K_PROG=4):
-    """합성 단일세포 섭동 데이터를 하나 생성한다.
-
-    Parameters
-    ----------
-    seed : int         난수 시드 (재현성)
-    structured : bool  True면 '학습 가능한 구조'를 심는다 (섭동 설명자→프로그램→유전자)
-                       False면 각 섭동 효과가 독립적 랜덤 (학습할 공통 규칙 없음)
-
-    Returns (dict)
-    -------
-    ctrl        : (n_ctrl, G)          control(기저) 세포들
-    pert_cells  : {p: (n_per_pert, G)} 섭동 p의 세포들
-    descriptor  : (N_PERT, K_PROG)     각 섭동의 '설명자' (B가 입력으로 씀)
-    train_ids / test_ids               훈련/테스트로 나뉜 섭동 번호
-    """
-    rng = np.random.default_rng(seed)
-
-    # (1) 유전자별 기본 발현량 + 세포 상태가 발현에 주는 영향(이질성의 원천)
-    mu0 = rng.uniform(0.5, 4.0, size=G)
-    state_loadings = rng.normal(0, 0.6, size=(2, G))
-
-    def sample_cells(extra_shift, n):
-        """세포 n개를 생성. 각 세포는 상태(z)가 달라서 발현이 조금씩 다르다."""
-        z = rng.normal(0, 1, size=(n, 2))          # 세포별 숨은 상태 2개
-        base = mu0[None, :] + z @ state_loadings    # 상태가 발현에 반영 → 세포마다 다름
-        noise = rng.normal(0, 0.4, size=(n, G))     # 측정 잡음
-        return np.clip(base + extra_shift[None, :] + noise, 0, None)  # 음수 발현 방지
-
-    # (2) 섭동 효과(shift) 만들기 — 여기가 '구조 없음 vs 있음'의 갈림길
-    if structured:
-        # 숨은 프로그램 K개: 각 프로그램은 특정 유전자 세트를 움직인다
-        prog_gene = np.zeros((K_PROG, G))
-        for k in range(K_PROG):
-            genes = rng.choice(G, size=rng.integers(6, 11), replace=False)
-            prog_gene[k, genes] = rng.normal(0, 1.5, size=len(genes))
-        # 각 섭동은 '설명자'(프로그램 활성도)를 가짐 → 효과 = 설명자 × 프로그램
-        descriptor = rng.normal(0, 1, size=(N_PERT, K_PROG))
-        true_shift = descriptor @ prog_gene          # 공통 규칙을 따름 → 학습 가능
-    else:
-        # 각 섭동이 독립적으로 소수 유전자를 랜덤하게 움직임 → 공통 규칙 없음
-        true_shift = np.zeros((N_PERT, G))
-        for p in range(N_PERT):
-            genes = rng.choice(G, size=rng.integers(3, 9), replace=False)
-            true_shift[p, genes] = rng.normal(0, 1.8, size=len(genes))
-        descriptor = rng.normal(0, 1, size=(N_PERT, K_PROG))  # 의미 없는 설명자
-
-    # (3) 실제 세포 생성
-    ctrl = sample_cells(np.zeros(G), n_ctrl)
-    pert_cells = {p: sample_cells(true_shift[p], n_per_pert) for p in range(N_PERT)}
-
-    # (4) 훈련/테스트 섭동 분리 (처음 보는 섭동에 대한 일반화 측정)
-    perm = rng.permutation(N_PERT)
-    train_ids = sorted(perm[:16].tolist())
-    test_ids  = sorted(perm[16:].tolist())
-
-    return dict(ctrl=ctrl, pert_cells=pert_cells, descriptor=descriptor,
-                true_shift=true_shift, train_ids=train_ids, test_ids=test_ids)
+<span class="sd">구성:</span>
+<span class="sd">  PART 1. 데이터 생성       — 세포×유전자 행렬, control + 섭동</span>
+<span class="sd">  PART 2. 예측기 A (평균)    — 훈련 섭동 평균효과를 모든 테스트에 복사</span>
+<span class="sd">  PART 3. 예측기 B (학습형)  — 섭동 설명자 → 효과를 회귀로 학습</span>
+<span class="sd">  PART 4. 채점 (DES/PDS/MAE) — 예측 vs 실제 비교</span>
+<span class="sd">  PART 5. 실험 실행          — 두 데이터셋에서 A/B 비교</span>
+<span class="sd">================================================================================</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">numpy.linalg</span><span class="w"> </span><span class="kn">import</span> <span class="n">lstsq</span>
 
 
-# ══════════════════════════════════════════════════════════════════════════
-# PART 2.  예측기 A — 평균 베이스라인 (설명자 무시)
-# ══════════════════════════════════════════════════════════════════════════
+<span class="c1"># ══════════════════════════════════════════════════════════════════════════</span>
+<span class="c1"># PART 1.  데이터 생성</span>
+<span class="c1"># ══════════════════════════════════════════════════════════════════════════</span>
 
-def fit_predict_A(data):
-    """훈련 섭동들의 '평균 효과'를 구해, 모든 테스트 섭동에 똑같이 적용한다.
-    → 섭동을 구별하지 않음. 가장 단순하지만 강력한 기준선."""
-    ctrl_mean = data['ctrl'].mean(0)
-    train_shifts = np.array([data['pert_cells'][p].mean(0) - ctrl_mean
-                             for p in data['train_ids']])
-    avg_shift = train_shifts.mean(0)                       # 평균 효과 하나
-    return {p: ctrl_mean + avg_shift for p in data['test_ids']}
+<span class="k">def</span><span class="w"> </span><span class="nf">make_dataset</span><span class="p">(</span><span class="n">seed</span><span class="p">,</span> <span class="n">structured</span><span class="p">,</span> <span class="n">G</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">N_PERT</span><span class="o">=</span><span class="mi">24</span><span class="p">,</span> <span class="n">n_ctrl</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">n_per_pert</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+                 <span class="n">K_PROG</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;합성 단일세포 섭동 데이터를 하나 생성한다.</span>
 
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    seed : int         난수 시드 (재현성)</span>
+<span class="sd">    structured : bool  True면 &#39;학습 가능한 구조&#39;를 심는다 (섭동 설명자→프로그램→유전자)</span>
+<span class="sd">                       False면 각 섭동 효과가 독립적 랜덤 (학습할 공통 규칙 없음)</span>
 
-# ══════════════════════════════════════════════════════════════════════════
-# PART 3.  예측기 B — 학습형 회귀 (설명자 사용)
-# ══════════════════════════════════════════════════════════════════════════
+<span class="sd">    Returns (dict)</span>
+<span class="sd">    -------</span>
+<span class="sd">    ctrl        : (n_ctrl, G)          control(기저) 세포들</span>
+<span class="sd">    pert_cells  : {p: (n_per_pert, G)} 섭동 p의 세포들</span>
+<span class="sd">    descriptor  : (N_PERT, K_PROG)     각 섭동의 &#39;설명자&#39; (B가 입력으로 씀)</span>
+<span class="sd">    train_ids / test_ids               훈련/테스트로 나뉜 섭동 번호</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
 
-def fit_predict_B(data):
-    """'섭동 설명자 → 효과'의 관계를 선형회귀로 학습한다.
-    테스트 섭동은 그 설명자를 넣어 효과를 예측 → 처음 보는 섭동도 예측 가능."""
-    ctrl_mean = data['ctrl'].mean(0)
-    tr = data['train_ids']
-    X = data['descriptor'][tr]                             # (훈련수, 설명자차원)
-    Y = np.array([data['pert_cells'][p].mean(0) - ctrl_mean for p in tr])  # (훈련수, G)
-    X_ = np.hstack([X, np.ones((len(tr), 1))])             # 절편 항 추가
-    W, *_ = lstsq(X_, Y, rcond=None)                       # 최소제곱으로 W 학습
-    pred = {}
-    for p in data['test_ids']:
-        x = np.hstack([data['descriptor'][p], [1.0]])
-        pred[p] = ctrl_mean + x @ W                        # 학습한 규칙으로 예측
-    return pred
+    <span class="c1"># (1) 유전자별 기본 발현량 + 세포 상태가 발현에 주는 영향(이질성의 원천)</span>
+    <span class="n">mu0</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">G</span><span class="p">)</span>
+    <span class="n">state_loadings</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">G</span><span class="p">))</span>
 
+    <span class="k">def</span><span class="w"> </span><span class="nf">sample_cells</span><span class="p">(</span><span class="n">extra_shift</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;세포 n개를 생성. 각 세포는 상태(z)가 달라서 발현이 조금씩 다르다.&quot;&quot;&quot;</span>
+        <span class="n">z</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>          <span class="c1"># 세포별 숨은 상태 2개</span>
+        <span class="n">base</span> <span class="o">=</span> <span class="n">mu0</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]</span> <span class="o">+</span> <span class="n">z</span> <span class="o">@</span> <span class="n">state_loadings</span>    <span class="c1"># 상태가 발현에 반영 → 세포마다 다름</span>
+        <span class="n">noise</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">G</span><span class="p">))</span>     <span class="c1"># 측정 잡음</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">base</span> <span class="o">+</span> <span class="n">extra_shift</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]</span> <span class="o">+</span> <span class="n">noise</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>  <span class="c1"># 음수 발현 방지</span>
 
-# ══════════════════════════════════════════════════════════════════════════
-# PART 4.  채점 — DES / PDS / MAE
-# ══════════════════════════════════════════════════════════════════════════
+    <span class="c1"># (2) 섭동 효과(shift) 만들기 — 여기가 &#39;구조 없음 vs 있음&#39;의 갈림길</span>
+    <span class="k">if</span> <span class="n">structured</span><span class="p">:</span>
+        <span class="c1"># 숨은 프로그램 K개: 각 프로그램은 특정 유전자 세트를 움직인다</span>
+        <span class="n">prog_gene</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">K_PROG</span><span class="p">,</span> <span class="n">G</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">K_PROG</span><span class="p">):</span>
+            <span class="n">genes</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">11</span><span class="p">),</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="n">prog_gene</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">genes</span><span class="p">]</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">genes</span><span class="p">))</span>
+        <span class="c1"># 각 섭동은 &#39;설명자&#39;(프로그램 활성도)를 가짐 → 효과 = 설명자 × 프로그램</span>
+        <span class="n">descriptor</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">N_PERT</span><span class="p">,</span> <span class="n">K_PROG</span><span class="p">))</span>
+        <span class="n">true_shift</span> <span class="o">=</span> <span class="n">descriptor</span> <span class="o">@</span> <span class="n">prog_gene</span>          <span class="c1"># 공통 규칙을 따름 → 학습 가능</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># 각 섭동이 독립적으로 소수 유전자를 랜덤하게 움직임 → 공통 규칙 없음</span>
+        <span class="n">true_shift</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N_PERT</span><span class="p">,</span> <span class="n">G</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N_PERT</span><span class="p">):</span>
+            <span class="n">genes</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="n">true_shift</span><span class="p">[</span><span class="n">p</span><span class="p">,</span> <span class="n">genes</span><span class="p">]</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.8</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">genes</span><span class="p">))</span>
+        <span class="n">descriptor</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">N_PERT</span><span class="p">,</span> <span class="n">K_PROG</span><span class="p">))</span>  <span class="c1"># 의미 없는 설명자</span>
 
-def score_all(data, pred):
-    """예측 평균 vs 실제 평균을 세 지표로 채점한다."""
-    ctrl_mean = data['ctrl'].mean(0)
-    ids = list(data['test_ids'])
-    P = np.array([pred[p] for p in ids])                        # 예측 (T x G)
-    T = np.array([data['pert_cells'][p].mean(0) for p in ids])  # 실제 (T x G)
+    <span class="c1"># (3) 실제 세포 생성</span>
+    <span class="n">ctrl</span> <span class="o">=</span> <span class="n">sample_cells</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">G</span><span class="p">),</span> <span class="n">n_ctrl</span><span class="p">)</span>
+    <span class="n">pert_cells</span> <span class="o">=</span> <span class="p">{</span><span class="n">p</span><span class="p">:</span> <span class="n">sample_cells</span><span class="p">(</span><span class="n">true_shift</span><span class="p">[</span><span class="n">p</span><span class="p">],</span> <span class="n">n_per_pert</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N_PERT</span><span class="p">)}</span>
 
-    # MAE: 전체 유전자 발현 오차 (낮을수록 좋음)
-    mae = np.abs(P - T).mean()
+    <span class="c1"># (4) 훈련/테스트 섭동 분리 (처음 보는 섭동에 대한 일반화 측정)</span>
+    <span class="n">perm</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">N_PERT</span><span class="p">)</span>
+    <span class="n">train_ids</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">perm</span><span class="p">[:</span><span class="mi">16</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+    <span class="n">test_ids</span>  <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">perm</span><span class="p">[</span><span class="mi">16</span><span class="p">:]</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
 
-    # PDS: 각 예측이 자기 짝(실제)에 L1거리로 가장 가까운가 (1=완벽, 0=랜덤)
-    ranks = []
-    for i in range(len(ids)):
-        d = np.abs(P[i][None, :] - T).sum(1)
-        ranks.append(int(np.where(np.argsort(d) == i)[0][0]) / (len(ids) - 1))
-    pds = 1 - 2 * np.mean(ranks)
-
-    # DES: 실제로 움직인 유전자 집합을 예측이 맞추는가 (recall, 높을수록 좋음)
-    des = []
-    for i in range(len(ids)):
-        true_fc = np.abs(T[i] - ctrl_mean)
-        n_deg = max(3, int((true_fc &gt; 0.5).sum()))
-        true_top = set(np.argsort(-true_fc)[:n_deg].tolist())
-        pred_top = set(np.argsort(-np.abs(P[i] - ctrl_mean))[:n_deg].tolist())
-        des.append(len(true_top &amp; pred_top) / len(true_top))
-    des = np.mean(des)
-
-    return dict(MAE=mae, PDS=pds, DES=des)
+    <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="n">ctrl</span><span class="o">=</span><span class="n">ctrl</span><span class="p">,</span> <span class="n">pert_cells</span><span class="o">=</span><span class="n">pert_cells</span><span class="p">,</span> <span class="n">descriptor</span><span class="o">=</span><span class="n">descriptor</span><span class="p">,</span>
+                <span class="n">true_shift</span><span class="o">=</span><span class="n">true_shift</span><span class="p">,</span> <span class="n">train_ids</span><span class="o">=</span><span class="n">train_ids</span><span class="p">,</span> <span class="n">test_ids</span><span class="o">=</span><span class="n">test_ids</span><span class="p">)</span>
 
 
-# ══════════════════════════════════════════════════════════════════════════
-# PART 5.  실험 실행 — 두 데이터셋에서 A vs B 비교
-# ══════════════════════════════════════════════════════════════════════════
+<span class="c1"># ══════════════════════════════════════════════════════════════════════════</span>
+<span class="c1"># PART 2.  예측기 A — 평균 베이스라인 (설명자 무시)</span>
+<span class="c1"># ══════════════════════════════════════════════════════════════════════════</span>
 
-if __name__ == "__main__":
-    for label, structured in [("구조 없음", False), ("구조 있음", True)]:
-        data = make_dataset(seed=0 if not structured else 42, structured=structured)
-        sA = score_all(data, fit_predict_A(data))
-        sB = score_all(data, fit_predict_B(data))
-        print(f"\n[{label}]")
-        print(f"  A(평균)  MAE={sA['MAE']:.3f}  PDS={sA['PDS']:.3f}  DES={sA['DES']:.3f}")
-        print(f"  B(학습형) MAE={sB['MAE']:.3f}  PDS={sB['PDS']:.3f}  DES={sB['DES']:.3f}")
+<span class="k">def</span><span class="w"> </span><span class="nf">fit_predict_A</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;훈련 섭동들의 &#39;평균 효과&#39;를 구해, 모든 테스트 섭동에 똑같이 적용한다.</span>
+<span class="sd">    → 섭동을 구별하지 않음. 가장 단순하지만 강력한 기준선.&quot;&quot;&quot;</span>
+    <span class="n">ctrl_mean</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;ctrl&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">train_shifts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;pert_cells&#39;</span><span class="p">][</span><span class="n">p</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">-</span> <span class="n">ctrl_mean</span>
+                             <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;train_ids&#39;</span><span class="p">]])</span>
+    <span class="n">avg_shift</span> <span class="o">=</span> <span class="n">train_shifts</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>                       <span class="c1"># 평균 효과 하나</span>
+    <span class="k">return</span> <span class="p">{</span><span class="n">p</span><span class="p">:</span> <span class="n">ctrl_mean</span> <span class="o">+</span> <span class="n">avg_shift</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;test_ids&#39;</span><span class="p">]}</span>
+
+
+<span class="c1"># ══════════════════════════════════════════════════════════════════════════</span>
+<span class="c1"># PART 3.  예측기 B — 학습형 회귀 (설명자 사용)</span>
+<span class="c1"># ══════════════════════════════════════════════════════════════════════════</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">fit_predict_B</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;&#39;섭동 설명자 → 효과&#39;의 관계를 선형회귀로 학습한다.</span>
+<span class="sd">    테스트 섭동은 그 설명자를 넣어 효과를 예측 → 처음 보는 섭동도 예측 가능.&quot;&quot;&quot;</span>
+    <span class="n">ctrl_mean</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;ctrl&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">tr</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;train_ids&#39;</span><span class="p">]</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;descriptor&#39;</span><span class="p">][</span><span class="n">tr</span><span class="p">]</span>                             <span class="c1"># (훈련수, 설명자차원)</span>
+    <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;pert_cells&#39;</span><span class="p">][</span><span class="n">p</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">-</span> <span class="n">ctrl_mean</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">tr</span><span class="p">])</span>  <span class="c1"># (훈련수, G)</span>
+    <span class="n">X_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">X</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">tr</span><span class="p">),</span> <span class="mi">1</span><span class="p">))])</span>             <span class="c1"># 절편 항 추가</span>
+    <span class="n">W</span><span class="p">,</span> <span class="o">*</span><span class="n">_</span> <span class="o">=</span> <span class="n">lstsq</span><span class="p">(</span><span class="n">X_</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">rcond</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>                       <span class="c1"># 최소제곱으로 W 학습</span>
+    <span class="n">pred</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;test_ids&#39;</span><span class="p">]:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;descriptor&#39;</span><span class="p">][</span><span class="n">p</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">]])</span>
+        <span class="n">pred</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="n">ctrl_mean</span> <span class="o">+</span> <span class="n">x</span> <span class="o">@</span> <span class="n">W</span>                        <span class="c1"># 학습한 규칙으로 예측</span>
+    <span class="k">return</span> <span class="n">pred</span>
+
+
+<span class="c1"># ══════════════════════════════════════════════════════════════════════════</span>
+<span class="c1"># PART 4.  채점 — DES / PDS / MAE</span>
+<span class="c1"># ══════════════════════════════════════════════════════════════════════════</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">score_all</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">pred</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;예측 평균 vs 실제 평균을 세 지표로 채점한다.&quot;&quot;&quot;</span>
+    <span class="n">ctrl_mean</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;ctrl&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">ids</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;test_ids&#39;</span><span class="p">])</span>
+    <span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">pred</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">ids</span><span class="p">])</span>                        <span class="c1"># 예측 (T x G)</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;pert_cells&#39;</span><span class="p">][</span><span class="n">p</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">ids</span><span class="p">])</span>  <span class="c1"># 실제 (T x G)</span>
+
+    <span class="c1"># MAE: 전체 유전자 발현 오차 (낮을수록 좋음)</span>
+    <span class="n">mae</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">P</span> <span class="o">-</span> <span class="n">T</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+    <span class="c1"># PDS: 각 예측이 자기 짝(실제)에 L1거리로 가장 가까운가 (1=완벽, 0=랜덤)</span>
+    <span class="n">ranks</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ids</span><span class="p">)):</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]</span> <span class="o">-</span> <span class="n">T</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">ranks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="o">==</span> <span class="n">i</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ids</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="n">pds</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">ranks</span><span class="p">)</span>
+
+    <span class="c1"># DES: 실제로 움직인 유전자 집합을 예측이 맞추는가 (recall, 높을수록 좋음)</span>
+    <span class="n">des</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ids</span><span class="p">)):</span>
+        <span class="n">true_fc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">T</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">ctrl_mean</span><span class="p">)</span>
+        <span class="n">n_deg</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="nb">int</span><span class="p">((</span><span class="n">true_fc</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()))</span>
+        <span class="n">true_top</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="o">-</span><span class="n">true_fc</span><span class="p">)[:</span><span class="n">n_deg</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+        <span class="n">pred_top</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">ctrl_mean</span><span class="p">))[:</span><span class="n">n_deg</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+        <span class="n">des</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">true_top</span> <span class="o">&amp;</span> <span class="n">pred_top</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">true_top</span><span class="p">))</span>
+    <span class="n">des</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">des</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="n">MAE</span><span class="o">=</span><span class="n">mae</span><span class="p">,</span> <span class="n">PDS</span><span class="o">=</span><span class="n">pds</span><span class="p">,</span> <span class="n">DES</span><span class="o">=</span><span class="n">des</span><span class="p">)</span>
+
+
+<span class="c1"># ══════════════════════════════════════════════════════════════════════════</span>
+<span class="c1"># PART 5.  실험 실행 — 두 데이터셋에서 A vs B 비교</span>
+<span class="c1"># ══════════════════════════════════════════════════════════════════════════</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">structured</span> <span class="ow">in</span> <span class="p">[(</span><span class="s2">&quot;구조 없음&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;구조 있음&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)]:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">make_dataset</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="mi">0</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">structured</span> <span class="k">else</span> <span class="mi">42</span><span class="p">,</span> <span class="n">structured</span><span class="o">=</span><span class="n">structured</span><span class="p">)</span>
+        <span class="n">sA</span> <span class="o">=</span> <span class="n">score_all</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">fit_predict_A</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+        <span class="n">sB</span> <span class="o">=</span> <span class="n">score_all</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">fit_predict_B</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">[</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  A(평균)  MAE=</span><span class="si">{</span><span class="n">sA</span><span class="p">[</span><span class="s1">&#39;MAE&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">  PDS=</span><span class="si">{</span><span class="n">sA</span><span class="p">[</span><span class="s1">&#39;PDS&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">  DES=</span><span class="si">{</span><span class="n">sA</span><span class="p">[</span><span class="s1">&#39;DES&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  B(학습형) MAE=</span><span class="si">{</span><span class="n">sB</span><span class="p">[</span><span class="s1">&#39;MAE&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">  PDS=</span><span class="si">{</span><span class="n">sB</span><span class="p">[</span><span class="s1">&#39;PDS&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">  DES=</span><span class="si">{</span><span class="n">sB</span><span class="p">[</span><span class="s1">&#39;DES&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></details>
 </div></body></html>
