@@ -20,47 +20,59 @@
   .tcode{color:#7b1fa2;background:#f8f4fc;}
   .exlab{font-size:10.5px;font-weight:700;padding:1px 6px;border-radius:20px;margin-right:6px;background:#d3ead9;color:#188038;}
   .note{background:#fff8e1;border-radius:10px;padding:12px 16px;font-size:13.5px;color:#8a6d00;margin-bottom:18px;}
+
+  .layout{display:flex;gap:22px;align-items:flex-start;}
+  .toc{position:sticky;top:16px;flex:0 0 200px;background:#fff;border:1px solid #e3e6ea;border-radius:12px;padding:14px 12px;max-height:88vh;overflow-y:auto;box-shadow:0 1px 3px rgba(0,0,0,.05);}
+  .toc-title{font-size:13px;font-weight:700;color:#9aa0a6;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px;}
+  .toc-cat{font-size:12px;font-weight:700;color:#5f6368;margin:10px 0 3px;}
+  .toc-item{font-size:13px;color:#1565c0;padding:3px 6px;border-radius:5px;cursor:pointer;line-height:1.4;}
+  .toc-item:hover{background:#f0f4ff;}
+  .content{flex:1;min-width:0;}
+  @media(max-width:680px){.layout{flex-direction:column;} .toc{position:static;flex:auto;width:100%;max-height:none;}}
 </style></head><body><div class="wrap">
 <h1>수학 · 통계 용어 노트</h1>
 <p class="sub">코드에 나오는 수학·통계 개념을 하나씩 쌓아가는 노트. 각 용어마다 그림 예시 포함.</p>
 <div class="note">📌 <b>계속 자라는 노트</b> — 새 용어(함수·분포·연산)를 만날 때마다 그림과 함께 추가.</div>
+<div class="layout">
+<div class="toc"><div class="toc-title">목차</div><div class="toc-cat">분포 (Distribution)</div><div class="toc-item" onclick="document.getElementById('t0').scrollIntoView({behavior:'smooth',block:'center'})">균등분포 uniform</div><div class="toc-item" onclick="document.getElementById('t1').scrollIntoView({behavior:'smooth',block:'center'})">정규분포 normal</div><div class="toc-cat">통계 요약값</div><div class="toc-item" onclick="document.getElementById('t2').scrollIntoView({behavior:'smooth',block:'center'})">평균 mean</div><div class="toc-item" onclick="document.getElementById('t3').scrollIntoView({behavior:'smooth',block:'center'})">표준편차 std</div><div class="toc-cat">선형대수</div><div class="toc-item" onclick="document.getElementById('t4').scrollIntoView({behavior:'smooth',block:'center'})">행렬곱 @</div><div class="toc-item" onclick="document.getElementById('t5').scrollIntoView({behavior:'smooth',block:'center'})">최소제곱 lstsq</div><div class="toc-cat">차원 & 행렬곱 상세</div><div class="toc-item" onclick="document.getElementById('t6').scrollIntoView({behavior:'smooth',block:'center'})">차원 (ndim) — (3,) vs (3,1)</div><div class="toc-item" onclick="document.getElementById('t7').scrollIntoView({behavior:'smooth',block:'center'})">행렬곱 @ — 무엇을 곱해 더하나</div><div class="toc-item" onclick="document.getElementById('t8').scrollIntoView({behavior:'smooth',block:'center'})">axis=N 규칙 — N번째 축이 사라진다</div></div>
+<div class="content">
 <details class="cat" open><summary>분포 (Distribution) — 난수를 '어떤 모양으로' 뽑나</summary><div class="catbody"><div class="term">
-  <div class="tname">균등분포 uniform</div>
+  <div class="tname" id="t0">균등분포 uniform</div>
   <div class="tone">정해진 범위에서 모든 값이 똑같은 확률</div>
   <div class="tdetail">주사위처럼 공평. 범위(low~high)가 정해져 있고 그 안은 평평. 범위 밖은 절대 안 나옴.</div>
   <img class="timg" src="images/e5bea7c9-da59-4b50-9f6a-26ce9433b5f7.svg">
   <div class="tex"><span class="exlab">예시</span> rng.uniform(0.5, 4.0, size=G) → 0.5~4.0 사이 골고루</div>
   <div class="tcode"><span class="exlab" style="background:#f3e8fd;color:#7b1fa2">코드</span> 인자: low(최소), high(최대), size(개수)</div>
 </div><div class="term">
-  <div class="tname">정규분포 normal</div>
+  <div class="tname" id="t1">정규분포 normal</div>
   <div class="tone">평균 중심 종 모양 (가운데 자주, 멀수록 드묾)</div>
   <div class="tdetail">사람 키처럼 평균 근처가 대부분. 범위 제한 없음(아주 크거나 작은 값도 드물게 가능).</div>
   <img class="timg" src="images/213c874f-978b-491f-9339-7750e0873017.svg">
   <div class="tex"><span class="exlab">예시</span> rng.normal(0, 0.6, size=(2,G)) → 0 중심, 대부분 ±0.6 안</div>
   <div class="tcode"><span class="exlab" style="background:#f3e8fd;color:#7b1fa2">코드</span> 인자: mean(평균=중심), std(표준편차=퍼짐), size(모양)</div>
 </div></div></details><details class="cat" open><summary>통계 요약값 — 데이터를 숫자 하나로</summary><div class="catbody"><div class="term">
-  <div class="tname">평균 mean</div>
+  <div class="tname" id="t2">평균 mean</div>
   <div class="tone">값들을 다 더해 개수로 나눈 '중심'</div>
   <div class="tdetail">가장 흔한 요약. .mean()으로 계산. 축(axis)을 주면 특정 방향으로만 평균.</div>
   <img class="timg" src="images/4332149a-96cc-4af1-8f27-dda452322265.svg">
   <div class="tex"><span class="exlab">예시</span> [1,2,3,4].mean() = 2.5</div>
   <div class="tcode"><span class="exlab" style="background:#f3e8fd;color:#7b1fa2">코드</span> arr.mean(0) = 행(세포) 방향 평균 → 열(유전자)별 평균</div>
 </div><div class="term">
-  <div class="tname">표준편차 std</div>
+  <div class="tname" id="t3">표준편차 std</div>
   <div class="tone">값들이 평균에서 얼마나 퍼져 있나</div>
   <div class="tdetail">작으면 촘촘, 크면 넓게 흩어짐. 정규분포의 두 번째 인자가 이것.</div>
   <img class="timg" src="images/bfd1507e-784f-41f7-af72-9ec67783d4b1.svg">
   <div class="tex"><span class="exlab">예시</span> [1,2,3,4].std() ≈ 1.12</div>
   <div class="tcode"><span class="exlab" style="background:#f3e8fd;color:#7b1fa2">코드</span> normal의 std=0.6 → 대부분 ±0.6 안에</div>
 </div></div></details><details class="cat" open><summary>선형대수 — 벡터·행렬 연산</summary><div class="catbody"><div class="term">
-  <div class="tname">행렬곱 @</div>
+  <div class="tname" id="t4">행렬곱 @</div>
   <div class="tone">두 배열을 '곱해 합치는' 연산 (matrix multiply)</div>
   <div class="tdetail">각 원소를 곱해 더함. 신경망·회귀의 핵심 연산. (a,b)@(b,c)=(a,c) — 안쪽 차원이 맞아야 함.</div>
   <img class="timg" src="images/2600fa70-86dd-4a02-821a-3554e3e551ad.svg">
   <div class="tex"><span class="exlab">예시</span> x(5,) @ W(5,60) → (60,) 벡터</div>
   <div class="tcode"><span class="exlab" style="background:#f3e8fd;color:#7b1fa2">코드</span> 예측 x @ W: 설명자에 규칙 W 적용</div>
 </div><div class="term">
-  <div class="tname">최소제곱 lstsq</div>
+  <div class="tname" id="t5">최소제곱 lstsq</div>
   <div class="tone">'예측이 정답에 최대한 가깝게'인 규칙을 한 번에 계산</div>
   <div class="tdetail">least squares. X @ W ≈ Y 가 되는 W를 오차 제곱합이 최소가 되도록 품. 선형회귀의 해.</div>
   <img class="timg" src="images/4107c5ca-8d51-4248-a9e5-9a47ff1923bf.svg">
@@ -69,7 +81,7 @@
 </div></div></details>
 <details class="cat" open><summary>차원 &amp; 행렬곱 상세 — 자주 헷갈리는 것</summary><div class="catbody">
 <div class="term">
-  <div class="tname">차원 (ndim) — (3,) vs (3,1)</div>
+  <div class="tname" id="t6">차원 (ndim) — (3,) vs (3,1)</div>
   <div class="tone">shape 괄호 안 숫자 '개수' = 차원 수</div>
   <div class="tdetail">(3,)=숫자 1개→1차원 벡터(행/열 없음, 대괄호 한 겹). (3,1)=숫자 2개→2차원 행렬(3행 1열, 대괄호 두 겹). 값이 같아도 차원이 다르면 별개.</div>
   <img class="timg" src="images/f32477e6-498b-4882-aabd-2421b5c7b94c.svg">
@@ -77,21 +89,23 @@
   <div class="tcode"><span class="exlab" style="background:#f3e8fd;color:#7b1fa2">코드</span> arr.ndim = 차원 수 (괄호 안 숫자 개수와 같음)</div>
 </div>
 <div class="term">
-  <div class="tname">행렬곱 @ — 무엇을 곱해 더하나</div>
+  <div class="tname" id="t7">행렬곱 @ — 무엇을 곱해 더하나</div>
   <div class="tone">x의 각 값 × W의 한 세로줄 → 짝끼리 곱해 더함, 열마다 반복</div>
   <div class="tdetail">out[j] = (x의 값들) · (W의 j번 열). (m×k)@(k×n)=(m×n): 안쪽 k가 맞아야 하고 사라짐, 바깥 m·n만 남음. 1차원 x(k,)@W(k,n)=(n,) — x의 길이가 W의 '행' 개수와 같아야 함.</div>
   <img class="timg" src="images/9a29b14e-6150-4b41-8955-6885aa4a54d5.svg">
   <div class="tex"><span class="exlab">예시</span> x(3,) @ W(3,4) = (4,) → out[0]=2×1+0×5+1×0=2</div>
   <div class="tcode"><span class="exlab" style="background:#f3e8fd;color:#7b1fa2">코드</span> x 길이 == W.shape[0](행 개수) 이면 곱 가능</div>
   <div class="term">
-  <div class="tname">axis=N 규칙 — N번째 축이 사라진다</div>
+  <div class="tname" id="t8">axis=N 규칙 — N번째 축이 사라진다</div>
   <div class="tone">mean(0)/sum(0) 등에서 축 방향 헷갈릴 때: axis=N 하면 그 N번 축이 없어진다</div>
   <div class="tdetail">shape (2700, 13714)에서 mean(axis=0) → 0번 축(2700)이 사라지고 (13714,) 남음 = 세포 방향(↓) 평균 = 유전자별 평균. mean(axis=1) → 1번 축(13714)이 사라지고 (2700,) = 세포별 평균. 우리 ctrl_mean = X.mean(0)이 바로 이것.</div>
-  <img class="timg" src="/Users/jongwonim/.claude-science/orgs/d41e7173-b904-46f4-8ab1-71976eeb016c/artifacts/proj_ef68b4beb685/1b8e7f0c-4cbe-4366-b268-1bd22d0d9b77/vd76f4f2f_mean_axis_note.svg">
+  <img class="timg" src="images/1b8e7f0c-4cbe-4366-b268-1bd22d0d9b77.svg">
   <div class="tex"><span class="exlab">예시</span> [[10,0,2,8],[4,6,0,8],[1,3,4,8]].mean(0) = [5,3,2,8] (각 열=유전자 평균)</div>
   <div class="tcode"><span class="exlab" style="background:#f3e8fd;color:#7b1fa2">코드</span> X.mean(axis=0) → 유전자별 · X.mean(axis=1) → 세포별</div>
 </div>
 </div>
 </div></details>
 
+</div>
+</div>
 </div></body></html>
