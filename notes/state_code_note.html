@@ -1,0 +1,44 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>STATE 코드 구조 노트</title>
+<style>
+  body{font-family:'Apple SD Gothic Neo','Malgun Gothic',sans-serif;margin:0;background:#f7f8fa;color:#202124;line-height:1.7;font-size:15px;}
+  .wrap{max-width:820px;margin:0 auto;padding:28px 22px 60px;}
+  .back{display:inline-block;margin-bottom:16px;color:#1565c0;text-decoration:none;font-size:13.5px;}
+  h1{font-size:23px;margin:0 0 4px;} .sub{color:#5f6368;font-size:14px;margin:0 0 20px;}
+  h2{font-size:18px;margin:26px 0 10px;padding-bottom:5px;border-bottom:2px solid #eef0f2;}
+  img{max-width:100%;border-radius:10px;border:1px solid #e3e6ea;margin:8px 0;}
+  code{font-family:ui-monospace,'SF Mono',Menlo,monospace;background:#f0f4f8;padding:1px 5px;border-radius:4px;font-size:13px;}
+  pre{background:#fbfcfd;border:1px solid #e3e6ea;border-radius:8px;padding:12px 15px;overflow-x:auto;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12.5px;line-height:1.5;}
+  a.gh{color:#1565c0;}
+  .key{background:#fff8e1;border-radius:10px;padding:12px 16px;font-size:13.5px;color:#8a6d00;margin:14px 0;}
+  .enough{background:#e8f5e9;border-radius:10px;padding:12px 16px;font-size:13.5px;color:#1b5e20;margin:14px 0;border-left:4px solid #188038;}
+</style></head><body><div class="wrap">
+<a class="back" href="index.html">← VCC 학습 노트</a>
+<h1>STATE 코드 구조 노트</h1>
+<p class="sub">Arc STATE 저장소를 직접 열어 SE/ST 두 모듈이 실제 코드로 어떻게 생겼는지 확인한 기록. 세부가 아니라 '지도'를 갖는 게 목적.</p>
+<p>원본 저장소: <a class="gh" href="https://github.com/ArcInstitute/state">github.com/ArcInstitute/state</a></p>
+
+<h2>① 저장소 구조 — 두 모듈</h2>
+<img src="images/23d0fecb-1a76-4e22-b445-8b4041ac5263.svg" alt="STATE 저장소 구조">
+<p><code>emb/</code>=SE(세포 임베딩), <code>tx/</code>=ST(섭동 반응 예측). CLI도 <code>state emb</code>/<code>state tx</code>로 분리.</p>
+
+<h2>② SE — 세포를 '문장'처럼 임베딩</h2>
+<img src="images/1cfb5427-bb1f-4760-936d-3f72455fa36b.svg" alt="SE 아이디어">
+<p>세포에서 켜진 유전자 목록을 "문장"으로 보고, 언어 모델처럼 트랜스포머로 처리. 맨 앞 <code>CLS token</code> 자리에 세포 전체 요약이 모여 → 그게 임베딩. (파일: <code>emb/nn/model.py</code>)</p>
+
+<h2>③ ST — 우리 fit_predict_B의 실제 버전</h2>
+<img src="images/bf6f0910-e09d-4069-9960-b4e7c883904a.svg" alt="ST vs B">
+<pre>pert_embedding = self.encode_perturbation(pert)       # 섭동 인코딩
+control_cells  = self.encode_basal_expression(basal)  # 기저 세포 인코딩
+combined_input = pert_embedding + control_cells       # 합쳐서 예측</pre>
+<p>구조는 우리 B와 똑같다: (섭동)+(기저 세포)→합쳐서 예측. 차이는 선형회귀 대신 트랜스포머, SE 임베딩 입력, 세포 집합 단위. (파일: <code>tx/models/state_transition.py</code>)</p>
+
+<h2>이번에 이해한 것 (딱 4개)</h2>
+<div class="key">
+1. STATE = emb(SE) + tx(ST) 두 폴더<br>
+2. SE = 세포를 '유전자 문장'으로 보고 트랜스포머로 임베딩<br>
+3. ST = (섭동 + 기저 세포) → 합쳐서 반응 예측 = 우리 fit_predict_B의 큰 버전<br>
+4. 이건 개념으로 배운 걸 실제 코드로 확인한 것
+</div>
+<div class="enough">✅ <b>충분선:</b> STATE 코드는 이 '지도' 수준이면 충분. 세부(트랜스포머 내부, loss 함수, CLS 정확한 작동)는 몰라도 됨 — 나중에 실제로 돌려볼 때 자연히 채워짐. '뭘 이해했는지 모르겠다'는 느낌은 코드 읽기에서 정상.</div>
+</div></body></html>
