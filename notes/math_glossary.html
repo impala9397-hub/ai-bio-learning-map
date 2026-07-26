@@ -2,7 +2,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"><title>수학·통계 용어 노트</title>
 <style>
   body{font-family:'Apple SD Gothic Neo','Malgun Gothic',sans-serif;margin:0;background:#f7f8fa;color:#202124;line-height:1.65;font-size:15px;}
-  .wrap{max-width:820px;margin:0 auto;padding:26px 22px 60px;}
+  .wrap{max-width:820px;margin:0 auto 0 250px;padding:26px 30px 60px;}
+  @media(max-width:900px){.wrap{margin:0 auto;}}
   h1{font-size:23px;margin:0 0 4px;} .sub{color:#5f6368;font-size:14px;margin:0 0 20px;}
   details.cat{background:#fff;border-radius:12px;margin:0 0 14px;box-shadow:0 1px 3px rgba(0,0,0,.06);overflow:hidden;}
   details.cat summary{cursor:pointer;list-style:none;font-size:16px;font-weight:700;color:#1565c0;padding:14px 18px;background:#f4f8ff;}
@@ -21,14 +22,14 @@
   .exlab{font-size:10.5px;font-weight:700;padding:1px 6px;border-radius:20px;margin-right:6px;background:#d3ead9;color:#188038;}
   .note{background:#fff8e1;border-radius:10px;padding:12px 16px;font-size:13.5px;color:#8a6d00;margin-bottom:18px;}
 
-  .layout{display:flex;gap:22px;align-items:flex-start;}
-  .toc{position:sticky;top:16px;flex:0 0 200px;background:#fff;border:1px solid #e3e6ea;border-radius:12px;padding:14px 12px;max-height:88vh;overflow-y:auto;box-shadow:0 1px 3px rgba(0,0,0,.05);}
+  .layout{display:block;}
+  .toc{position:fixed;left:0;top:0;width:210px;height:100vh;overflow-y:auto;background:#fbfcfd;border-right:1px solid #e3e6ea;padding:20px 14px;box-sizing:border-box;}
   .toc-title{font-size:13px;font-weight:700;color:#9aa0a6;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px;}
-  .toc-cat{font-size:12px;font-weight:700;color:#5f6368;margin:10px 0 3px;}
-  .toc-item{font-size:13px;color:#1565c0;padding:3px 6px;border-radius:5px;cursor:pointer;line-height:1.4;}
-  .toc-item:hover{background:#f0f4ff;}
-  .content{flex:1;min-width:0;}
-  @media(max-width:680px){.layout{flex-direction:column;} .toc{position:static;flex:auto;width:100%;max-height:none;}}
+  .toc-cat{font-size:12px;font-weight:700;color:#5f6368;margin:12px 0 3px;}
+  .toc-item{font-size:13px;color:#1565c0;padding:4px 6px;border-radius:5px;cursor:pointer;line-height:1.4;}
+  .toc-item:hover{background:#eef4ff;}
+  .content{max-width:820px;}
+  @media(max-width:900px){.toc{position:static;width:auto;height:auto;border-right:none;border-bottom:1px solid #e3e6ea;margin-bottom:16px;}}
 </style></head><body><div class="wrap">
 <h1>수학 · 통계 용어 노트</h1>
 <p class="sub">코드에 나오는 수학·통계 개념을 하나씩 쌓아가는 노트. 각 용어마다 그림 예시 포함.</p>
